@@ -14,7 +14,7 @@ Now, lean back in the comfort of knowing that should excrement hit the rotating 
 1. touch RAILS_ROOT/.kill (via SSH or have your app admin controller do it if you want to give that power to the users)
 2. Rejoice in the sudden absence of blood and gore on your website as all requests return the contents of holding.html.
 
-Because it's Rack middleware and doesn't ever access the DB, it'll work whether you're using nginx or Apache and do it's job even if your latest commit f'ed up the Rails app, the host lost your DB and the Queen annexed Iceland.
+Because it's Rack middleware and doesn't ever access the DB, it'll work whether you're using nginx or Apache and do its job even if your latest commit f'ed up the Rails app, the host lost your DB and the Queen annexed Iceland.
 
 == <steve_jobs>One more thing...</steve_jobs>
 
