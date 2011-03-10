@@ -28,6 +28,10 @@ Sometimes you'll want to access the app yourself though, just not have it open t
 
 Go to 'http://www.wherever.com/letmein' and you're sorted for 24 hours.
 
+== Installation
+
+Rails? Good. Bundle it, and you're sorted.
+
 == Contributing to rack-killswitch
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
