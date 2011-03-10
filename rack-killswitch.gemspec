@@ -25,7 +25,8 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "lib/rack-killswitch.rb",
-    "lib/rack/killswitch.rb"
+    "lib/rack/killswitch.rb",
+    "rack-killswitch.gemspec"
   ]
   s.homepage = %q{http://github.com/rawnet/rack-killswitch}
   s.licenses = ["MIT"]
