@@ -1,6 +1,32 @@
 = rack-killswitch
 
-Description goes here.
+Live broadcast on app showing fire and blood everywhere? Image hosting site flooded with pornography? Or some other urgent reason to take your app offline in a hurry?
+
+rack-killswitch to the rescue. Just add this to your app:
+  
+  # config/environment.rb
+  config.middleware.use 'Rack::Killswitch',
+       :trigger => Rails.root.join('.kill'),
+       :page    => Rails.root.join('public', 'holding.html')
+
+Now, lean back in the comfort of knowing that should excrement hit the rotating device, you can just:
+
+1. touch RAILS_ROOT/.kill (via SSH or have your app admin controller do it if you want to give that power to the users)
+2. Rejoice in the sudden absence of blood and gore on your website as all requests return the contents of holding.html.
+
+Because it's Rack middleware and doesn't ever access the DB, it'll work whether you're using nginx or Apache and do it's job even if your latest commit f'ed up the Rails app, the host lost your DB and the Queen annexed Iceland.
+
+== <steve_jobs>One more thing...</steve_jobs>
+
+Sometimes you'll want to access the app yourself though, just not have it open to the nosy public (screw 'em). The :override_path option sets a path that, when accessed, sets a cookie that will allow you access to the site for as long as you have the cookie and "bypass" the killswitch:
+
+  # config/environment.rb
+  config.middleware.use 'Rack::Killswitch',
+     :trigger => Rails.root.join('.kill'),
+     :page    => Rails.root.join('public', 'holding.html'),
+     :override_path => '/letmein'
+
+Go to 'http://www.wherever.com/letmein' and you're sorted for 24 hours.
 
 == Contributing to rack-killswitch
  
@@ -14,6 +40,5 @@ Description goes here.
 
 == Copyright
 
-Copyright (c) 2011 Christian Sutter. See LICENSE.txt for
-further details.
+Copyright (c) 2011 Rawnet. See LICENSE.txt for further details.
 
